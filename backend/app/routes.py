@@ -1,9 +1,25 @@
 from flask import Blueprint, request, jsonify
-from api.models import Snippet
-from api import db
+from app.models import Snippet
+from app import db
 import uuid
 
 main = Blueprint("main", __name__)
+
+
+@main.route("/snippets/<uuid:snippet_id>", methods=["GET"])
+def get_snippet(snippet_id: uuid.UUID):
+    print(snippet_id)
+    snippet = Snippet.query.get_or_404(str(snippet_id))
+
+    return jsonify(
+        {
+            "id": snippet.id,
+            "code": snippet.code,
+            "language": snippet.language,
+            "theme": snippet.theme,
+            "created_at": snippet.created_at.isoformat(),
+        }
+    )
 
 
 @main.route("/snippets", methods=["POST"])
@@ -17,22 +33,6 @@ def create_snippet():
     db.session.add(new_snippet)
     db.session.commit()
     return jsonify({"id": new_snippet.id}), 201
-
-
-@main.route("/snippets/<uuid:snippet_id>", methods=["GET"])
-def get_snippet(snippet_id: uuid.UUID):
-    print(snippet_id)
-    snippet = Snippet.query.get_or_404(str(snippet_id))  # Convertir a cadena
-
-    return jsonify(
-        {
-            "id": snippet.id,
-            "code": snippet.code,
-            "language": snippet.language,
-            "theme": snippet.theme,
-            "created_at": snippet.created_at.isoformat(),
-        }
-    )
 
 
 @main.route("/snippets/<uuid:snippet_id>", methods=["PUT"])

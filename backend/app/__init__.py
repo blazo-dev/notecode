@@ -12,8 +12,8 @@ def create_app():
     db.init_app(app)
     CORS(app)
 
-    from api.routes import main as main_blueprint
+    from app.routes import main as main_blueprint
 
-    app.register_blueprint(main_blueprint, url_prefix="/api")
+    app.register_blueprint(main_blueprint, url_prefix="/app")
 
     return app

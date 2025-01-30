@@ -1,13 +1,12 @@
 from sqlalchemy import Column, String, Text, DateTime
 import uuid
-from api import db
+from app import db
 from datetime import datetime
 
 
 class Snippet(db.Model):
     __tablename__ = "snippet"
 
-    # UUID almacenado como String
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     code = Column(Text, nullable=False)
     language = Column(String(50), nullable=False, default="plaintext")
@@ -21,3 +20,12 @@ class Snippet(db.Model):
 
     def __repr__(self):
         return f"<Snippet {self.id}>"
+
+    def to_json(self):
+        return {
+            "id": self.id,
+            "code": self.code,
+            "language": self.language,
+            "theme": self.theme,
+            "created_at": self.created_at.isoformat() if isinstance(self.created_at, datetime) else self.created_at,
+        }

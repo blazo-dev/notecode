@@ -1,5 +1,4 @@
-from flask import Flask
-from api import create_app, db
+from app import create_app, db
 
 app = create_app()
 
