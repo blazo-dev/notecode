@@ -1,10 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './main.css'
+// @ts-ignore
+import '@fontsource-variable/outfit';
+import {StrictMode} from 'react'
+import {createRoot} from 'react-dom/client'
+import './main.scss'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+    <StrictMode>
+        <App/>
+    </StrictMode>,
 )

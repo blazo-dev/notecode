@@ -1,0 +1,35 @@
+:root {
+  --primary: 64, 106, 255;
+  --accent: 206, 214, 225;
+  --dark: 18, 24, 38;
+  --light: 255, 255, 254;
+  --light-background: 206, 214, 225;
+  --background: linear-gradient(
+    to bottom right,
+    rgba(183, 135, 245, 1),
+    rgba(116, 62, 228, 1)
+  );
+  --text: 0, 31, 63;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+
+  margin: 0;
+
+  font-family: "Outfit Variable", sans-serif;
+  background: #f8f8fc;
+  color: rgb(var(--text));
+
+  & > * {
+    grid-column: 2/3;
+  }
+}

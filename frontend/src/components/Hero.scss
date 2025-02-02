@@ -1,0 +1,18 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -100;
+
+  width: min(100%, 1280px);
+
+  &__image {
+    display: block;
+    width: 1280px;
+  }
+}
