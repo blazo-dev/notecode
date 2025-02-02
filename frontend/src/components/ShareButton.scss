@@ -1,0 +1,33 @@
+/* CSS */
+.share-button {
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  padding: .7rem 1.3rem;
+
+  font-family: inherit;
+  font-weight: 500;
+
+  background-color: rgb(var(--primary));
+  color: rgb(var(--light));
+  border: 0;
+  border-radius: 2rem;
+
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgb(var(--accent), 0.8);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: rgb(var(--accent), 0.2);
+  }
+}

@@ -1,6 +1,5 @@
 export const defaultSnippet = {
-  id: "default",
-  code: `<html>
+    code: `<html>
   <head>
     <title>HTML Sample</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +17,7 @@ export const defaultSnippet = {
     <input disabled type="button" value="Click me" />
   </body>
 </html>`,
-  language: "html",
-  theme: "vs-dark",
-  created_at: new Date().toISOString(),
+    language: "html",
+    theme: "vs-dark",
+    created_at: new Date().toISOString(),
 };
